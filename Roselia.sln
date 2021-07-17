@@ -3,21 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School.Domain", "Domain\School.Domain.csproj", "{219C47FE-2D23-46F0-B7F0-6D5671399378}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "School.Domain", "Domain\School.Domain.csproj", "{219C47FE-2D23-46F0-B7F0-6D5671399378}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "School", "School", "{490734A6-5BD2-4A4F-B010-605C62289B42}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{749B5734-3025-4679-99DE-A6036BDC86AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{AE8C24E8-D05A-4955-9847-2870F4EF353F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{AE8C24E8-D05A-4955-9847-2870F4EF353F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paginate", "Paginate\Paginate.csproj", "{4974312C-E8FB-49BB-9EBB-7760C8FBDCB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paginate", "Paginate\Paginate.csproj", "{4974312C-E8FB-49BB-9EBB-7760C8FBDCB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School.Data", "School.Data\School.Data.csproj", "{E7690D4E-9FBC-4F68-9B1B-DCB044324338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "School.Data", "School.Data\School.Data.csproj", "{E7690D4E-9FBC-4F68-9B1B-DCB044324338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School.Infrastructure", "School.Infrastructure\School.Infrastructure.csproj", "{02E5CA8D-0599-4C08-A92A-8DAEBC038ADB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "School.Infrastructure", "School.Infrastructure\School.Infrastructure.csproj", "{02E5CA8D-0599-4C08-A92A-8DAEBC038ADB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School.API", "School.API\School.API.csproj", "{F5892344-9126-4C68-8AC1-F65D87FD7314}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "School.API", "School.API\School.API.csproj", "{F5892344-9126-4C68-8AC1-F65D87FD7314}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionNotes", "SolutionNotes", "{9D9554E9-ACAC-44AE-8422-8E0388E72012}"
+	ProjectSection(SolutionItems) = preProject
+		note.txt = note.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
