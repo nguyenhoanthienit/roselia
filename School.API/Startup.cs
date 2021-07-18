@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using School.Infrastructure.Configures;
+using School.Infrastructure.Mapper;
+using School.Infrastructure.Mediators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +32,15 @@ namespace School.API
 		{
 			services.AddControllers();
 
+			// Register the Swagger generator, defining 1 or more Swagger documents
+			services.AddSwaggerGen();
+
 			services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+			services.AddAutoMapper();
+			services.AddMediator();
 			services.AddUnitOfWork();
+			services.AddServices();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +50,16 @@ namespace School.API
 			{
 				app.UseDeveloperExceptionPage();
 			}
+
+			// Enable middleware to serve generated Swagger as a JSON endpoint.
+			app.UseSwagger();
+
+			// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+			// specifying the Swagger JSON endpoint.
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Roselia's API V1");
+			});
 
 			app.UseHttpsRedirection();
 

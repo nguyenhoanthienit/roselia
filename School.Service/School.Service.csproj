@@ -7,13 +7,12 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="MediatR" Version="9.0.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Domain\School.Domain.csproj" />
     <ProjectReference Include="..\School.Data\School.Data.csproj" />
-    <ProjectReference Include="..\School.Service\School.Service.csproj" />
   </ItemGroup>
 
 </Project>
