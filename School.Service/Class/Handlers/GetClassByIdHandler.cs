@@ -26,9 +26,7 @@ namespace School.Service.Class.Handlers
 
 		public async Task<ApiResult> Handle(GetClassByIdQuery request, CancellationToken cancellationToken)
 		{
-			var res = await _unitOfWork.GetRepository<ClassEntity>().TableNoTracking
-				.Where(c => c.Id.ToString() == request.Id)
-				.SingleOrDefaultAsync();
+			var res = await _unitOfWork.GetRepository<ClassEntity>().TableNoTracking.SingleOrDefaultAsync(predicate: c => c.Id.ToString() == request.Id);
 
 			return ApiResult.Succeeded(_mapper.Map(res, new ClassDetailDto()));
 		}

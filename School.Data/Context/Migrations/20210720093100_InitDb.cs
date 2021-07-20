@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace School.Data.Context.migrations
+namespace School.Data.context.migrations
 {
-    public partial class initDb : Migration
+    public partial class InitDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,7 @@ namespace School.Data.Context.migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Schools",
+                name: "Students",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -56,9 +56,9 @@ namespace School.Data.Context.migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Schools", x => x.Id);
+                    table.PrimaryKey("PK_Students", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Schools_Classes_ClassId",
+                        name: "FK_Students_Classes_ClassId",
                         column: x => x.ClassId,
                         principalTable: "Classes",
                         principalColumn: "Id",
@@ -69,6 +69,7 @@ namespace School.Data.Context.migrations
                 name: "Schedules",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     ClassId = table.Column<Guid>(type: "uuid", nullable: false),
                     SubjectId = table.Column<Guid>(type: "uuid", nullable: false),
                     DayOfWeek = table.Column<int>(type: "integer", nullable: false),
@@ -79,7 +80,7 @@ namespace School.Data.Context.migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Schedules", x => new { x.ClassId, x.SubjectId, x.DayOfWeek });
+                    table.PrimaryKey("PK_Schedules", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Schedules_Classes_ClassId",
                         column: x => x.ClassId,
@@ -95,13 +96,19 @@ namespace School.Data.Context.migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Schedules_ClassId_SubjectId_DayOfWeek",
+                table: "Schedules",
+                columns: new[] { "ClassId", "SubjectId", "DayOfWeek" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Schedules_SubjectId",
                 table: "Schedules",
                 column: "SubjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Schools_ClassId",
-                table: "Schools",
+                name: "IX_Students_ClassId",
+                table: "Students",
                 column: "ClassId");
         }
 
@@ -111,7 +118,7 @@ namespace School.Data.Context.migrations
                 name: "Schedules");
 
             migrationBuilder.DropTable(
-                name: "Schools");
+                name: "Students");
 
             migrationBuilder.DropTable(
                 name: "Subjects");

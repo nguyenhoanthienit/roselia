@@ -1,19 +1,23 @@
-﻿using Common.Entities;
+﻿using Common.ApiResponse;
+using MediatR;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
 
-namespace School.Domain.Entities
+namespace School.Service.Schedule.Commands
 {
-	public class ScheduleEntity : ICreatedEntity, IUpdatedEntity
+	public class CreateSheduleRequest : IRequest<ApiResult>
 	{
-		public Guid Id { get; set; } = new Guid();
+		[Required]
 		public Guid ClassId { get; set; }
+		[Required]
 		public Guid SubjectId { get; set; }
+		[Required]
 		public int DayOfWeek { get; set; }
 		public DateTime? CreatedAt { get; set; }
 		public string CreatedBy { get; set; }
 		public DateTime? UpdatedAt { get; set; }
 		public string UpdatedBy { get; set; }
-		public virtual ClassEntity Class { get; set; }
-		public virtual SubjectEntity Subject { get; set; }
 	}
 }

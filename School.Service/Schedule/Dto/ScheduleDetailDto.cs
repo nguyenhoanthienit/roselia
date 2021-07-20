@@ -1,11 +1,11 @@
-﻿using Common.Entities;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace School.Domain.Entities
+namespace School.Service.Schedule.Dto
 {
-	public class ScheduleEntity : ICreatedEntity, IUpdatedEntity
+	public class ScheduleDetailDto
 	{
-		public Guid Id { get; set; } = new Guid();
 		public Guid ClassId { get; set; }
 		public Guid SubjectId { get; set; }
 		public int DayOfWeek { get; set; }
@@ -13,7 +13,5 @@ namespace School.Domain.Entities
 		public string CreatedBy { get; set; }
 		public DateTime? UpdatedAt { get; set; }
 		public string UpdatedBy { get; set; }
-		public virtual ClassEntity Class { get; set; }
-		public virtual SubjectEntity Subject { get; set; }
 	}
 }

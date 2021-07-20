@@ -34,7 +34,7 @@ namespace School.Data.Context
 
 			builder.Entity<ScheduleEntity>(entity =>
 			{
-				entity.HasKey(e => new { e.ClassId, e.SubjectId, e.DayOfWeek});
+				entity.HasIndex(e => new { e.ClassId, e.SubjectId, e.DayOfWeek }).IsUnique();
 
 				entity.HasOne(e => e.Class)
 				.WithMany(e => e.Schedules)

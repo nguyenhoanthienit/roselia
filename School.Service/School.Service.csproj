@@ -15,4 +15,9 @@
     <ProjectReference Include="..\School.Data\School.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Schedule\Queries\" />
+    <Folder Include="Subject\Queries\" />
+  </ItemGroup>
+
 </Project>

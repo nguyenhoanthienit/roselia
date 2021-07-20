@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using School.Data.Context;
 
-namespace School.Data.Context.migrations
+namespace School.Data.context.migrations
 {
     [DbContext(typeof(WriteDbContext))]
-    [Migration("20210717075233_initDb")]
-    partial class initDb
+    [Migration("20210720093100_InitDb")]
+    partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,14 +50,12 @@ namespace School.Data.Context.migrations
 
             modelBuilder.Entity("School.Domain.Entities.ScheduleEntity", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("ClassId")
                         .HasColumnType("uuid");
-
-                    b.Property<Guid>("SubjectId")
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("DayOfWeek")
-                        .HasColumnType("integer");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
@@ -65,15 +63,24 @@ namespace School.Data.Context.migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
+                    b.Property<int>("DayOfWeek")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("SubjectId")
+                        .HasColumnType("uuid");
+
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("text");
 
-                    b.HasKey("ClassId", "SubjectId", "DayOfWeek");
+                    b.HasKey("Id");
 
                     b.HasIndex("SubjectId");
+
+                    b.HasIndex("ClassId", "SubjectId", "DayOfWeek")
+                        .IsUnique();
 
                     b.ToTable("Schedules");
                 });
@@ -106,7 +113,7 @@ namespace School.Data.Context.migrations
 
                     b.HasIndex("ClassId");
 
-                    b.ToTable("Schools");
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("School.Domain.Entities.SubjectEntity", b =>
