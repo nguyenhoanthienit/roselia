@@ -1,1 +1,12 @@
 domain -> data -> infrastructure -> services
+
+Run this in package manager console:
+Choose default project is "School.Data"
+
+// Set up env variables
+$env:ASPNETCORE_ENVIRONMENT="Development"
+$env:WRITE_DATABASE_CONNECTION_STRING="Host=localhost;port=5432;Database=Roselia;Username=postgres;Password=admin"
+$env:READ_DATABASE_CONNECTION_STRING="Host=localhost;port=5432;Database=Roselia;Username=postgres;Password=admin"
+
+// Update to DB postgresql
+Update-Database -context WriteDbContext
