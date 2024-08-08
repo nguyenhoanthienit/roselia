@@ -110,6 +110,52 @@ namespace School.Data.context.migrations
                 name: "IX_Students_ClassId",
                 table: "Students",
                 column: "ClassId");
+
+            // Insert sample data
+            var class1Id = Guid.NewGuid();
+            var class2Id = Guid.NewGuid();
+            var subject1Id = Guid.NewGuid();
+            var subject2Id = Guid.NewGuid();
+            var student1Id = Guid.NewGuid();
+            var student2Id = Guid.NewGuid();
+            var schedule1Id = Guid.NewGuid();
+            var schedule2Id = Guid.NewGuid();
+            
+            migrationBuilder.InsertData(
+                table: "Classes",
+                columns: new[] { "Id", "ClassName" },
+                values: new object[,]
+                {
+                    { class1Id, "Math" },
+                    { class2Id, "Science" }
+                });
+            
+            migrationBuilder.InsertData(
+                table: "Subjects",
+                columns: new[] { "Id", "SubjectName" },
+                values: new object[,]
+                {
+                    { subject1Id, "Algebra" },
+                    { subject2Id, "Biology" }
+                });
+            
+            migrationBuilder.InsertData(
+                table: "Students",
+                columns: new[] { "Id", "StudentName", "ClassId" },
+                values: new object[,]
+                {
+                    { student1Id, "Alice", class1Id },
+                    { student2Id, "Bob", class2Id }
+                });
+            
+            migrationBuilder.InsertData(
+                table: "Schedules",
+                columns: new[] { "Id", "ClassId", "SubjectId", "DayOfWeek" },
+                values: new object[,]
+                {
+                    { schedule1Id, class1Id, subject1Id, 1 },
+                    { schedule2Id, class2Id, subject2Id, 3 }
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
