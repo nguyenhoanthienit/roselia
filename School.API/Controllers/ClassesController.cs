@@ -32,5 +32,18 @@ namespace School.API.Controllers
 				return ApiResult.Failed(Common.ErrorResult.ErrorCode.BAD_REQUEST);
 			}
 		}
+
+	        [HttpGet]
+	        public async Task<IActionResult> GetClasses()
+	        {
+	            try
+	            {
+	                return Ok(await _mediator.Send(new GetClassesQuery { }));
+	            }
+	            catch (Exception ex)
+	            {
+	                return ApiResult.Failed(Common.ErrorResult.ErrorCode.BAD_REQUEST);
+	            }
+	        }
 	}
 }
