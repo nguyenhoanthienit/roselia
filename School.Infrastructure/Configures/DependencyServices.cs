@@ -17,6 +17,7 @@ namespace School.Infrastructure.Configures
 		{
 			// Class
 			services.AddService<GetClassByIdQuery, GetClassByIdHandler>();
+			services.AddService<GetClassesQuery, GetClassesHandler>();
 
 			// Student
 			services.AddService<GetStudentsByClassIdQuery, GetStudentByClassIdHandler>();
